@@ -4,7 +4,7 @@
 #include <ArduinoMqttClient.h>
 #include <WiFiNINA.h>
 #include <PubSubClient.h>
-#include "home_secrets.h"
+#include "home_secrets.h" // You need to write your own secrets file
 #include "LiquidCrystal_I2C.h"
 LiquidCrystal_I2C lcd(0x27,16,2);  
 
