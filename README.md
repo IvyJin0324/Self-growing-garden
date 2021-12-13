@@ -108,7 +108,7 @@ I design 3 visualisation methods,different visualisations used for different use
 
 - When I'm at other places far away from my plant:
 -
-
+<img width="775" alt="Screenshot 2021-12-13 at 20 43 37" src="https://user-images.githubusercontent.com/67747655/145885823-c7cbb4d8-0934-4f65-9350-281a6346a33d.png">
 
 
 
