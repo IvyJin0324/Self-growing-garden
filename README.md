@@ -52,7 +52,11 @@ The last step is visualising data.
 
 ### Step1: Build physical device and test them
 -
-<img width="412" alt="Screenshot 2021-12-13 at 18 31 44" src="https://user-images.githubusercontent.com/67747655/145868346-128783f1-b078-4a90-aa53-0765fae97895.png">
+<img width="775" alt="Screenshot 2021-12-13 at 18 31 44" src="https://user-images.githubusercontent.com/67747655/145868346-128783f1-b078-4a90-aa53-0765fae97895.png">
+If you are building a multi-sensor system, do not forget to test them one by one. And I put the test file in the "test" folder. You can use it to check whether your sensor works. Running the code after connecting all the sensors will make it difficult for you to find out where the problem is. So, try not to do this.
+
+### Step2: Trigger Code
+
 
 
 
