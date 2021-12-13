@@ -55,7 +55,63 @@ The last step is visualising data.
 <img width="775" alt="Screenshot 2021-12-13 at 18 31 44" src="https://user-images.githubusercontent.com/67747655/145868346-128783f1-b078-4a90-aa53-0765fae97895.png">
 If you are building a multi-sensor system, do not forget to test them one by one. And I put the test file in the "test" folder. You can use it to check whether your sensor works. Running the code after connecting all the sensors will make it difficult for you to find out where the problem is. So, try not to do this.
 
-### Step2: Trigger Code
+### Step2: Trigger to actuation
+
+This code is conditionally starting the actuation functions:
+```
+// Soil moisture Trigger
+void pump_Trigger(){
+  if( wetValue > 60 ){
+    closePump();
+  }else if( wetValue < 30 ){
+    openPump();
+  }
+}
+
+// Temperature Trigger
+void temperature_Trigger(){
+  if( temp < 20 ){
+    openheater();
+  }else if (temp >30){
+    opencooler();
+    }else{
+      closetemp();
+  }
+}
+
+// Humidity Trigger
+void humidity_Trigger(){
+  if( hum > 55 ){
+    closeFAN();
+  }else if (hum < 40){
+    openFAN();
+  }
+}
+
+// Light Trigger
+void light_Trigger(){
+  if( lightValue < 2100 ){
+    openlight();
+  }else if (lightValue > 16865){
+    closelight();
+  }
+}
+```
+### Step 3 Actuation code
+
+### Step 4 Data Visualisation
+
+I design 3 visualisation methods,different visualisations used for different use cases:
+- When I am at CE lab and near to the plant, I will look the LCD to get data information:
+<img width="775" alt="Screenshot 2021-12-13 at 19 22 07" src="https://user-images.githubusercontent.com/67747655/145874765-0968d037-4af6-4011-b3b8-b5b20f88c031.png">
+- When I want to know how to actuate  to my plants, I will follow the LED indicator:
+
+- When I'm at other places far away from my plant:
+-
+
+
+
+
 
 
 
