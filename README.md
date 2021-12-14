@@ -5,6 +5,10 @@
 - Date: 13, Dec, 2021
 - Professor: Martin
 ## About
+This IOT garden has two mode:
+If you are too busy to take care your plant, choose the self-growing mode:
+
+If you want to enjoy the pleasure of plating and get proffessional advise, chose the Infrered control mode:
 
 ***
 ## Background and Related Work
@@ -97,7 +101,7 @@ void light_Trigger(){
   }
 }
 ```
-### Step 3 Actuation code
+### Step 3 Actuation
 
 ### Step 4 Data Visualisation
 
@@ -109,6 +113,12 @@ I design 3 visualisation methods,different visualisations used for different use
 - When I'm at other places far away from my plant:
 -
 <img width="775" alt="Screenshot 2021-12-13 at 20 43 37" src="https://user-images.githubusercontent.com/67747655/145885823-c7cbb4d8-0934-4f65-9350-281a6346a33d.png">
+
+
+### Step 5 Enclosure
+To protect the circuit and make it look clear, I used Fusion360 to create an enclousure model(Export in stl format), then open the stl in a slicer and optimise the settings. Finally, I use 3D printer to print the enclosure.
+
+
 
 
 
