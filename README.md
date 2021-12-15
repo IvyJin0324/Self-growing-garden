@@ -21,6 +21,8 @@ Taking care of plants indoors is difficult because we usually:
 - live in poor illumination room
 - live in environment too warm or too cold 
 To help people plant easier and more proffessional， I design this self-growing-garden based on Arduino and take my plant, a peace lily, as example.
+<img width="483" alt="Screenshot 2021-12-15 at 11 03 17" src="https://user-images.githubusercontent.com/67747655/146175171-8295c011-b610-47d1-beda-74b9e357057a.png">
+
 
 ### Raleted Work
 According to David(2021,para. 5.), Water, light, temperature and air are the four main environmental factors that influence plant growth. 
