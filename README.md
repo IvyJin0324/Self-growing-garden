@@ -8,7 +8,7 @@
 This IOT garden has two mode:
 If you are too busy to take care your plant, choose the self-growing mode:
 
-If you want to enjoy the pleasure of plating and get proffessional advise, chose the Infrered control mode:
+If you want to enjoy the pleasure of planting and get proffessional advise, chose the Infrared control mode:
 
 ***
 ## Background and Related Work
