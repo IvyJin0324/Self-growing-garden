@@ -128,6 +128,8 @@ Then I packaged the enclosure with sensors and sctuators.
 -
 <img width="951" alt="Screenshot 2021-12-15 at 00 10 53" src="https://user-images.githubusercontent.com/67747655/146099183-be778164-4b94-4c8f-b301-27811a784424.png">
 
+Finally, I used my power bank to power the device.
+
 ## In the future
 
 - Use eagle to create printed circuit boards (PCBs)  to reduce the size of the device.
