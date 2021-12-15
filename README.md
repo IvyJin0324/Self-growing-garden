@@ -134,11 +134,11 @@ Then I packaged the enclosure with sensors and sctuators.
 - Printer a bigger and more suitable enclosure, because the 3D printer of CE lab can only print models up to 25*25*25 cm model.
 
 ## References
-Arduino Forum. 2021. Using digital pin 0 and 1 just like any other Digital Pin?. [online] Available at: <https://forum.arduino.cc/t/using-digital-pin-0-and-1-just-like-any-other-digital-pin/462591>; [Accessed 12 December 2021].
-Rhoades, H., 2021. Indoor Peace Lily Plants: Growing A Peace Lily Plant. [online] Gardening Know How. Available at: <https://www.gardeningknowhow.com/houseplants/peace-lily/peace-lily-plants.htm>; [Accessed 12 December 2021].
-Amrita Prasad, 2021. Air plants to jade, cacti, peace lily: Here are the most Instagrammable WFH plants. The times of India (Bombay, India), pp.The times of India (Bombay, India), 2021–02-22.
-Söderby, K., 2021. Sending Data over MQTT. [online] Docs.arduino.cc. Available at: <https://docs.arduino.cc/tutorials/uno-wifi-rev2/uno-wifi-r2-mqtt-device-to-device>; [Accessed 12 December 2021].
-Blum, J., 2020. Exploring Arduino tools and techniques for engineering wizardry / Jeremy Blum 2nd ed., Indianapolis, Ind.: Wiley.
+- Arduino Forum. 2021. Using digital pin 0 and 1 just like any other Digital Pin?. [online] Available at: <https://forum.arduino.cc/t/using-digital-pin-0-and-1-just-like-any-other-digital-pin/462591>; [Accessed 12 December 2021].
+- Rhoades, H., 2021. Indoor Peace Lily Plants: Growing A Peace Lily Plant. [online] Gardening Know How. Available at: <https://www.gardeningknowhow.com/houseplants/peace-lily/peace-lily-plants.htm>; [Accessed 12 December 2021].
+- Amrita Prasad, 2021. Air plants to jade, cacti, peace lily: Here are the most Instagrammable WFH plants. The times of India (Bombay, India), pp.The times of India (Bombay, India), 2021–02-22.
+- Söderby, K., 2021. Sending Data over MQTT. [online] Docs.arduino.cc. Available at: <https://docs.arduino.cc/tutorials/uno-wifi-rev2/uno-wifi-r2-mqtt-device-to-device>; [Accessed 12 December 2021].
+- Blum, J., 2020. Exploring Arduino tools and techniques for engineering wizardry / Jeremy Blum 2nd ed., Indianapolis, Ind.: Wiley.
 Rhoades, H., 2021. Indoor Peace Lily Plants: Growing A Peace Lily Plant. [online] Gardening Know How. Available at: <https://www.gardeningknowhow.com/houseplants/peace-lily/peace-lily-plants.htm>; [Accessed 12 December 2021].
 
 
