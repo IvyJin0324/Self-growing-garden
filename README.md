@@ -40,7 +40,8 @@ As for the peace lily:
 
 ### Design requirements
 -
-<img width="775" alt="Screenshot 2021-12-13 at 18 22 57" src="https://user-images.githubusercontent.com/67747655/145867227-fc0be8b0-9504-4950-b35e-bf7f044295dd.png">
+<img width="804" alt="Screenshot 2021-12-15 at 10 13 11" src="https://user-images.githubusercontent.com/67747655/146167707-446823e5-e3b1-4672-a82e-c498102e3686.png">
+
 
 
 ## Technical Development
