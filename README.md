@@ -50,7 +50,7 @@ As for the peace lily:
 
 This is the process of how to make this system:
 -
-<img width="451" alt="Screenshot 2021-12-15 at 00 15 31" src="https://user-images.githubusercontent.com/67747655/146099650-455e53ae-cf6c-4d19-b8a6-6010bb047ba0.png">
+<img width="775" alt="Screenshot 2021-12-15 at 00 15 31" src="https://user-images.githubusercontent.com/67747655/146099650-455e53ae-cf6c-4d19-b8a6-6010bb047ba0.png">
 -
 The first step are building physical device and gathering environment sensor.
 The second step is determining whether the data is within the reasonable range.
@@ -124,6 +124,7 @@ I design 3 visualisation methods,different visualisations used for different use
 
 
 ### Step 5 Enclosure
+
 To protect the circuit and make it look clear, I used Fusion360 to create an enclousure model(Export in stl format), then open the stl in a slicer and optimise the settings. Finally, I use 3D printer to print the enclosure.
 -
 <img width="775" alt="Screenshot 2021-12-15 at 00 07 57" src="https://user-images.githubusercontent.com/67747655/146098987-404e0e8f-ec10-40b9-8b32-339e96ee2307.png">
@@ -131,7 +132,8 @@ Then I packaged the enclosure with sensors and sctuators.
 -
 <img width="951" alt="Screenshot 2021-12-15 at 00 10 53" src="https://user-images.githubusercontent.com/67747655/146099183-be778164-4b94-4c8f-b301-27811a784424.png">
 
-Finally, I used my power bank to power the device.
+Finally, I used my power bank to power the device. And wrote a intruction ducument for people who want to use it.
+- <img width="490" alt="Screenshot 2021-12-15 at 11 16 37" src="https://user-images.githubusercontent.com/67747655/146177254-f4ee2ac6-1f4f-409c-a1fc-11823a0884bf.png">
 
 ## In the future
 
