@@ -139,9 +139,9 @@ Finally, I used my power bank to power the device. And wrote a intruction ducume
 
 - Use eagle to create printed circuit boards (PCBs)  to reduce the size of the device.
 - Printer a bigger and more suitable enclosure, because the 3D printer of CE lab can only print models up to 25*25*25 cm model.
-
-##Ready to start your plant journey? Make it right now!
-
+***
+## Ready to start your plant journey? Make it right now!
+***
 ## References
 - Arduino Forum. 2021. Using digital pin 0 and 1 just like any other Digital Pin?. [online] Available at: <https://forum.arduino.cc/t/using-digital-pin-0-and-1-just-like-any-other-digital-pin/462591>; [Accessed 12 December 2021].
 - Rhoades, H., 2021. Indoor Peace Lily Plants: Growing A Peace Lily Plant. [online] Gardening Know How. Available at: <https://www.gardeningknowhow.com/houseplants/peace-lily/peace-lily-plants.htm>; [Accessed 12 December 2021].
