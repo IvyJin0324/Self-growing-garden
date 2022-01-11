@@ -5,11 +5,12 @@
 - Date: 13, Dec, 2021
 - Professor: Martin
 ## About
+
+This is a fully automatic plant care system. It can realize automatic watering based on soil humidity, automatic temperature control based on air temperature, automatic humidity control based on air humidity, and automatic lighting based on light intensity. It also saves water resources while helping plants grow healthily.
+
 This IOT garden has two mode:
 If you are too busy to take care your plant, choose the self-growing mode:
-
 If you want to enjoy the pleasure of planting and get proffessional advise, chose the Infrared control mode:
-
 ***
 ## Background and Related Work
 ### Background
