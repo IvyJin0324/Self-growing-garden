@@ -10,11 +10,9 @@ This is a fully automatic plant care system. It can realize automatic watering b
 
 This IOT garden has two mode:
 
-If you are too busy to take care your plant, choose the self-growing mode:
-https://www.youtube.com/watch?v=yOcGHOeshqI
+If you are too busy to take care your plant, choose the self-growing mode:https://www.youtube.com/watch?v=yOcGHOeshqI
 
-If you want to enjoy the pleasure of planting and get proffessional advise, chose the Infrared control mode:
-https://www.youtube.com/watch?v=JpR6kpfqF1I
+If you want to enjoy the pleasure of planting and get proffessional advise, chose the Infrared control mode:https://www.youtube.com/watch?v=JpR6kpfqF1I
 
 ***
 ## Background and Related Work
@@ -117,17 +115,17 @@ DHT22 can sense the temperature and humidity in the air. Define it as digital pi
 #### Test4: Sensing illumination
 
 First, you need to connect the illumination sensor into the circuit, and define the illumination Pin as A2. Then run the illumination test file with the arduino.  The illumination value can then be viewed through the serial monitor. The test is successful when the illumination value is within the normal range. 
-<img width="851" alt="Screenshot 2021-12-02 at 00 34 58" src="https://user-images.githubusercontent.com/67747655/149047033-a7069c38-1ab1-42c6-9a8f-4695076b6892.png">
+- <img width="851" alt="Screenshot 2021-12-02 at 00 34 58" src="https://user-images.githubusercontent.com/67747655/149047033-a7069c38-1ab1-42c6-9a8f-4695076b6892.png">
 
 #### Test5: LED indicator
 
 When the environmental data value is not within the normal range, the LED indicator will light up to remind the user to pay attention. First you need to connect the three LED lights according to the circuit diagram, and then run the test file, which defines the temperature range as 20-30°C and the humidity range as 40%-55%. The range of light intensity is 2100-16855 lux, then initialise the LED to digital pin3,5,11.
-<img width="700" alt="Screenshot 2021-12-02 at 14 55 22" src="https://user-images.githubusercontent.com/67747655/149050782-ad8184a0-2477-4f62-9b7c-8b305152758f.png">
+- <img width="700" alt="Screenshot 2021-12-02 at 14 55 22" src="https://user-images.githubusercontent.com/67747655/149050782-ad8184a0-2477-4f62-9b7c-8b305152758f.png">
 
 #### Test6: Fan test
 
 This step is to test if the fan is working properly. First connect the fan and board according to the circuit diagram. Then run the test file. When the fan starts to rotate, it means that there is no problem with the actuator, and the test is successful.
-<img width="500" alt="Screenshot 2022-01-12 at 02 05 53" src="https://user-images.githubusercontent.com/67747655/149051026-9ad3b580-83e8-45c8-baec-2161aa98e799.png">
+- <img width="500" alt="Screenshot 2022-01-12 at 02 05 53" src="https://user-images.githubusercontent.com/67747655/149051026-9ad3b580-83e8-45c8-baec-2161aa98e799.png">
 
 #### Test7: Neopixel test
 In order not to affect the growth of plants in the case of insufficient natural light, the system has added an automatic lighting function. Because blue and red light are favorable light for plant growth, these two colors were chosen. This is achieved through Neopixel. First, you need to connect neopixel and board according to the circuit diagram, and then run the test file, which calls the Adafruit_NeoPixel library.
@@ -136,21 +134,40 @@ In order not to affect the growth of plants in the case of insufficient natural 
     pixels.setPixelColor(i, 170, 56, 30);
     pixels.show();
 ```
-<img width="194" alt="Screenshot 2022-01-12 at 02 07 35" src="https://user-images.githubusercontent.com/67747655/149051154-42182a4e-42cd-4166-b692-3647c0f15cb4.png">
+- <img width="194" alt="Screenshot 2022-01-12 at 02 07 35" src="https://user-images.githubusercontent.com/67747655/149051154-42182a4e-42cd-4166-b692-3647c0f15cb4.png">
 
 ### Step 2 Data Visualisation
 
 I design 3 visualisation methods,different visualisations used for different use cases:
 - When I am at CE lab and near to the plant, I will look the LCD to get data information:
-<img width="775" alt="Screenshot 2021-12-13 at 19 22 07" src="https://user-images.githubusercontent.com/67747655/145874765-0968d037-4af6-4011-b3b8-b5b20f88c031.png">
+- <img width="775" alt="Screenshot 2021-12-13 at 19 22 07" src="https://user-images.githubusercontent.com/67747655/145874765-0968d037-4af6-4011-b3b8-b5b20f88c031.png">
 - When I want to know how to actuate  to my plants, I will follow the LED indicator:
 - <img width="793" alt="Screenshot 2022-01-12 at 02 14 13" src="https://user-images.githubusercontent.com/67747655/149051740-12312e7a-90e2-4942-8169-a0c3e33bb69d.png">
-
 - When I'm at other places far away from my plant:
-<img width="775" alt="Screenshot 2021-12-13 at 20 43 37" src="https://user-images.githubusercontent.com/67747655/145885823-c7cbb4d8-0934-4f65-9350-281a6346a33d.png">
+- <img width="775" alt="Screenshot 2021-12-13 at 20 43 37" src="https://user-images.githubusercontent.com/67747655/145885823-c7cbb4d8-0934-4f65-9350-281a6346a33d.png">
 
+### Step 3 Integrate all test files
+Consolidate all test files into one file
+ 
+#### Mode1:
+The final arduino file of the automatic mode of the self-growing garden divides the unused functions in the test file into 5 types and organizes them into categories:
+- MQTT SETTING
+- Read Sensor Data Function
+- Actuation Function
+- Trigger Function
+- Visualisation Function
 
-### Step 5 Enclosure
+Eventually all functions can run simultaneously.
+
+#### Mode2:
+When users want to enjoy taking care of their own plants. Code for IR mode can be uploaded to override automatic mode.
+First, you need to connect the bluetooth receiver and the board. Define the bluetooth module as digital pin7. Then run the IR-Key file, open the serial monitor, and press different keys on the remote control to see the codes corresponding to different keys. Take note of these codes.
+- <img width="725" alt="Screenshot 2021-12-06 at 17 46 16" src="https://user-images.githubusercontent.com/67747655/149053203-30da7617-8db4-45b8-98cd-ce554cd98aca.png">
+
+Then define each kay, and each sensor and actuator. Use the following statement to associate each kay with actuation functions.
+<img width="635" alt="Screenshot 2022-01-12 at 02 33 28" src="https://user-images.githubusercontent.com/67747655/149053506-f45d3339-2efb-4bc0-a9f4-f80b685fd09a.png">
+
+### Step 4 Enclosure
 
 To protect the circuit and make it look clear, I used Fusion360 to create an enclousure model(Export in stl format), then open the stl in a slicer and optimise the settings. Finally, I use 3D printer to print the enclosure.
 -
