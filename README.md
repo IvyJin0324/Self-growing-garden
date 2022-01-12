@@ -9,8 +9,13 @@
 This is a fully automatic plant care system. It can realize automatic watering based on soil humidity, automatic temperature control based on air temperature, automatic humidity control based on air humidity, and automatic lighting based on light intensity. It also saves water resources while helping plants grow healthily.
 
 This IOT garden has two mode:
+
 If you are too busy to take care your plant, choose the self-growing mode:
+https://www.youtube.com/watch?v=yOcGHOeshqI
+
 If you want to enjoy the pleasure of planting and get proffessional advise, chose the Infrared control mode:
+https://www.youtube.com/watch?v=JpR6kpfqF1I
+
 ***
 ## Background and Related Work
 ### Background
@@ -46,81 +51,102 @@ As for the peace lily:
 <img width="804" alt="Screenshot 2021-12-15 at 10 13 11" src="https://user-images.githubusercontent.com/67747655/146167707-446823e5-e3b1-4672-a82e-c498102e3686.png">
 
 
-
 ## Technical Development
 
-This is the process of how to make this system:
+This is the process of how this system works:
 -
 <img width="775" alt="Screenshot 2021-12-15 at 00 15 31" src="https://user-images.githubusercontent.com/67747655/146099650-455e53ae-cf6c-4d19-b8a6-6010bb047ba0.png">
--
-The first step are building physical device and gathering environment sensor.
-The second step is determining whether the data is within the reasonable range.
+
+The first step are building physical device (board, sensors and actuators)and test them one by one.
+The second step are sending device data to MQTT and connecting to wifi for visualising better.
 The third step is triggering related sensor to change the plant environment.
-The last step is visualising data.
+The last step are designing and printing enclosure for the system.
 
 ### Step1: Build physical device and test them
--<img width="789" alt="Screenshot 2021-12-15 at 12 00 51" src="https://user-images.githubusercontent.com/67747655/146183334-59bbfdff-f1db-4958-bb54-5130f8830ebb.png">
+-<img width="775" alt="Screenshot 2021-12-15 at 12 00 51" src="https://user-images.githubusercontent.com/67747655/146183334-59bbfdff-f1db-4958-bb54-5130f8830ebb.png">
 
 If you are building a multi-sensor system, do not forget to test them one by one. And I put the test file in the "test" folder. You can use it to check whether your sensor works. Running the code after connecting all the sensors will make it difficult for you to find out where the problem is. So, try not to do this.
 
-### Step2: Trigger to actuation
+#### Test1: Sensing soil moisture
+This step is to judge whether the soil moisture sensor can work normally. First, you need to connect the soil moisture sensor into the circuit, and define the soilPin as A0. Then run the soil moisture test file with the arduino. The soil moisture data needs to be calculated as follows. The soil moisture data can then be viewed through the serial monitor. The test is successful when the soil moisture is within the normal range. 
+  ```
+  wetValue = analogRead(wetPin);
+  wetValue *= 100;
+  wetValue = wetValue/1023;
+  ```
+<img width="775" alt="Screenshot 2021-12-02 at 00 26 27" src="https://user-images.githubusercontent.com/67747655/149041259-b72104e7-afa1-41c4-9941-5e250fd93a46.png">
 
-This code is conditionally starting the actuation functions:
+#### Test2: Watering plant automatically
+
+According to David(2021,para. 5.), the suitale range of soil humidity for peace lily is from 30% to 60%. In this step, when the soil humidity is lower than 30%, run the water pump to start watering until the soil humidity reaches 60%. The pump stops running.
+
+First need to connect the water pipe, water pump and water pump driver according to the circuit diagram. The water pump driver contains two motors, which are defined as digital pin8,9 respectively.
+
+Use function(pump_judge) to determine whether the soil needs watering：
 ```
-// Soil moisture Trigger
-void pump_Trigger(){
-  if( wetValue > 60 ){
+void pump_judge(){
+  if( wetValue > HIGH_TH ){
     closePump();
-  }else if( wetValue < 30 ){
+  }else if( wetValue < LOW_TH ){
     openPump();
   }
 }
-
-// Temperature Trigger
-void temperature_Trigger(){
-  if( temp < 20 ){
-    openheater();
-  }else if (temp >30){
-    opencooler();
-    }else{
-      closetemp();
-  }
+```
+Use function(open pump) and function(close pump) to realize the switch of the pump.
+```
+void openPump(){
+  pump_sta = 1;
+  analogWrite(MOTOR_INA1, 150);
+  analogWrite(MOTOR_INA2 , 0);
 }
 
-// Humidity Trigger
-void humidity_Trigger(){
-  if( hum > 55 ){
-    closeFAN();
-  }else if (hum < 40){
-    openFAN();
-  }
-}
-
-// Light Trigger
-void light_Trigger(){
-  if( lightValue < 2100 ){
-    openlight();
-  }else if (lightValue > 16865){
-    closelight();
-  }
+void closePump(){
+  pump_sta = 0;
+  analogWrite(MOTOR_INA1, 0);
+  analogWrite(MOTOR_INA2 , 0);
 }
 ```
-### Step 3 Actuation
-- Open/close air-conditioner to change temperature
-- Open/close fan to change humidity
-- Open/close light matrix to increase illumination
-- Open/close pump to water plant
+Now when I put the soil moisture sensor in the water cup (humidity greater than 30%), the pump won't run, when I put it in the air (humidity less than 30%), the pump runs and starts watering automatically, once I put the sensor again Into the water, the watering process stops immediately.（You can see the vedio in test folder）
 
+#### Test3: Sensing temperature and humidity with DHT22 and visualizing with LCD
 
-### Step 4 Data Visualisation
+DHT22 can sense the temperature and humidity in the air. Define it as digital pin 4 according to the circuit diagram. Then connect the LCD to the circuit. Finally, run the test file and the environment data will be displayed in LCD.
+
+<img width="846" alt="Screenshot 2022-01-12 at 01 15 37" src="https://user-images.githubusercontent.com/67747655/149046553-a88c531e-25bc-4ea5-90f9-1b43950d4b94.png">
+
+#### Test4: Sensing illumination
+
+First, you need to connect the illumination sensor into the circuit, and define the illumination Pin as A2. Then run the illumination test file with the arduino.  The illumination value can then be viewed through the serial monitor. The test is successful when the illumination value is within the normal range. 
+<img width="851" alt="Screenshot 2021-12-02 at 00 34 58" src="https://user-images.githubusercontent.com/67747655/149047033-a7069c38-1ab1-42c6-9a8f-4695076b6892.png">
+
+#### Test5: LED indicator
+
+When the environmental data value is not within the normal range, the LED indicator will light up to remind the user to pay attention. First you need to connect the three LED lights according to the circuit diagram, and then run the test file, which defines the temperature range as 20-30°C and the humidity range as 40%-55%. The range of light intensity is 2100-16855 lux, then initialise the LED to digital pin3,5,11.
+<img width="700" alt="Screenshot 2021-12-02 at 14 55 22" src="https://user-images.githubusercontent.com/67747655/149050782-ad8184a0-2477-4f62-9b7c-8b305152758f.png">
+
+#### Test6: Fan test
+
+This step is to test if the fan is working properly. First connect the fan and board according to the circuit diagram. Then run the test file. When the fan starts to rotate, it means that there is no problem with the actuator, and the test is successful.
+<img width="500" alt="Screenshot 2022-01-12 at 02 05 53" src="https://user-images.githubusercontent.com/67747655/149051026-9ad3b580-83e8-45c8-baec-2161aa98e799.png">
+
+#### Test7: Neopixel test
+In order not to affect the growth of plants in the case of insufficient natural light, the system has added an automatic lighting function. Because blue and red light are favorable light for plant growth, these two colors were chosen. This is achieved through Neopixel. First, you need to connect neopixel and board according to the circuit diagram, and then run the test file, which calls the Adafruit_NeoPixel library.
+```
+  for(int i=0; i<NUMPIXELS; i++) {
+    pixels.setPixelColor(i, 170, 56, 30);
+    pixels.show();
+```
+<img width="194" alt="Screenshot 2022-01-12 at 02 07 35" src="https://user-images.githubusercontent.com/67747655/149051154-42182a4e-42cd-4166-b692-3647c0f15cb4.png">
+
+### Step 2 Data Visualisation
 
 I design 3 visualisation methods,different visualisations used for different use cases:
 - When I am at CE lab and near to the plant, I will look the LCD to get data information:
 <img width="775" alt="Screenshot 2021-12-13 at 19 22 07" src="https://user-images.githubusercontent.com/67747655/145874765-0968d037-4af6-4011-b3b8-b5b20f88c031.png">
 - When I want to know how to actuate  to my plants, I will follow the LED indicator:
+- <img width="793" alt="Screenshot 2022-01-12 at 02 14 13" src="https://user-images.githubusercontent.com/67747655/149051740-12312e7a-90e2-4942-8169-a0c3e33bb69d.png">
 
 - When I'm at other places far away from my plant:
--
 <img width="775" alt="Screenshot 2021-12-13 at 20 43 37" src="https://user-images.githubusercontent.com/67747655/145885823-c7cbb4d8-0934-4f65-9350-281a6346a33d.png">
 
 
