@@ -166,6 +166,13 @@ First, you need to connect the bluetooth receiver and the board. Define the blue
 
 Then define each kay, and each sensor and actuator. Use the following statement to associate each kay with actuation functions.
 <img width="635" alt="Screenshot 2022-01-12 at 02 33 28" src="https://user-images.githubusercontent.com/67747655/149053506-f45d3339-2efb-4bc0-a9f4-f80b685fd09a.png">
+The process of transferring data to MQTT I divided it into three parts. Define broker information and Topics, establish connections, and send data to MQTT.
+```
+// send data to MQTT
+    mqttClient.beginMessage(topic1);
+    mqttClient.print(String(temp));
+    mqttClient.endMessage();
+ ```
 
 ### Step 4 Enclosure
 
